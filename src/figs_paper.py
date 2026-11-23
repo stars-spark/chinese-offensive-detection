@@ -39,6 +39,29 @@ def luminance(rgba) -> float:
     return 0.2126 * lin[0] + 0.7152 * lin[1] + 0.0722 * lin[2]
 
 
+def text_color(rgba) -> str:
+    """按 WCAG 对比度在黑字、白字里取对比度高的那个。"""
+    y = luminance(rgba)
+    return "white" if 1.05 / (y + 0.05) > (y + 0.05) / 0.05 else "black"
+
+
+def lightness(rgba) -> float:
+    """CIE L*，0 为黑、100 为白。"""
+    y = luminance(rgba)
+    return 116 * y ** (1 / 3) - 16 if y > 0.008856 else 903.3 * y
+
+
+def even_cmap(name: str = "GnBu", l_hi: float = 93.0):
+    """把色带按明度重新采样成等步长：数值每差一点，深浅变化看起来一样；最浅端截到 L*=l_hi。"""
+    from matplotlib.colors import LinearSegmentedColormap
+    base = plt.get_cmap(name)
+    t = np.linspace(0, 1, 1001)
+    L = np.array([lightness(base(x)) for x in t])          # 单调递减
+    targets = np.linspace(min(l_hi, L[0]), L[-1], 256)
+    ts = np.interp(-targets, -L, t)
+    return LinearSegmentedColormap.from_list(f"{name}_even", [base(x) for x in ts])
+
+
 def ylab(ax, text: str):
     """纵轴标签竖排时整串逆时针转 90°，所以“越高越好”写成 →、“越低越好”写成 ←，转过来正好朝上、朝下。"""
     ax.set_ylabel(text.replace("↑", "→").replace("↓", "←"))
@@ -131,15 +154,15 @@ def fig_cloak():
                 o, e = o[o.pair_id.isin(keep)], e[e.pair_id.isin(keep)]
                 d.append(((o.pred == 1).mean() - (e.pred == 1).mean()) * 100)
             mat[i, j] = np.mean(d)
-    cmap = plt.get_cmap(CMAP_SEQ)
+    cmap = even_cmap("GnBu")
     vmax = 30.0
     fig, ax = plt.subplots(figsize=(0.78 * 6.30, 3.4))
-    mesh = ax.pcolormesh(mat, cmap=cmap, vmin=0, vmax=vmax, edgecolors="white", linewidth=1.5)
+    mesh = ax.pcolormesh(mat, cmap=cmap, vmin=0, vmax=vmax, edgecolors="white", linewidth=1.2)
     for i in range(mat.shape[0]):
         for j in range(mat.shape[1]):
             rgba = cmap(min(max(mat[i, j], 0), vmax) / vmax)
             t = ax.text(j + 0.5, i + 0.5, f"{mat[i, j]:.1f}", ha="center", va="center", fontsize=7.5,
-                        color="white" if luminance(rgba) < 0.4 else "black")
+                        color=text_color(rgba))
             t._in_bar = True
     ax.set_xticks(np.arange(len(F2.KINDS)) + 0.5, [k[1] for k in F2.KINDS])
     ax.set_yticks(np.arange(len(F2.M)) + 0.5, [m[0] for m in F2.M])
@@ -256,7 +279,7 @@ def fig_attr():
             ax.add_patch(Rectangle((x0 + i * cell, y - 0.11), cell, 0.22, facecolor=cmap(0.08 + 0.92 * frac),
                                    edgecolor="none"))
             t = ax.text(x0 + (i + 0.5) * cell, y, ch, ha="center", va="center", fontsize=fsize,
-                        color="white" if luminance(cmap(0.08 + 0.92 * frac)) < 0.4 else "black")
+                        color=text_color(cmap(0.08 + 0.92 * frac)))
             t._in_bar = True
         # 群体词：连续的字合成一个黑框
         i = 0
