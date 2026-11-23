@@ -57,7 +57,8 @@ src/        训练、评测、分析与作图代码
   llm_api.py            DeepSeek API 零样本（试点）
   llm_api_full.py       DeepSeek API 零样本（全量）
   significance.py       配对重抽样与 McNemar 检验
-  analyze_*.py, judge_C.py, figs_*.py   汇总、判定与作图
+  figs_paper.py         报告插图，按进版尺寸作图并在保存前检查文字与线条的重叠
+  analyze_*.py, judge_C.py   汇总与判定
   demo_moderate.py      三级审核的命令行演示
 scripts/    各组实验的运行脚本
 tests/      单元测试
