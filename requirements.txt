@@ -1,0 +1,15 @@
+torch==2.14.0
+transformers==5.17.0
+peft==0.22.0
+accelerate==1.16.0
+scikit-learn==1.9.1
+scipy==1.18.1
+numpy==2.5.3
+pandas==3.0.6
+pyarrow==26.0.1
+jieba==0.42.1
+pypinyin==0.55.0
+matplotlib==3.11.2
+rich==14.2.0
+pillow==12.2.0
+pytest==9.2.0

@@ -1,0 +1,66 @@
+{
+ "generated_at": "2026-11-22T12:08:24+08:00",
+ "device": "cuda",
+ "gpu": "Tesla V100S-PCIE-32GB",
+ "cpu": "Intel(R) Xeon(R) Gold 5318Y CPU @ 2.10GHz",
+ "cpu_count": 96,
+ "torch_num_threads": 48,
+ "torch_version": "2.8.0+cu126",
+ "sklearn_version": "1.7.2",
+ "batch_size": 64,
+ "warmup_batches": 1,
+ "reps": 3,
+ "test_limit": null,
+ "test_n": 5323,
+ "fp32": true,
+ "distilbert": {
+  "192": {
+   "n": 5323,
+   "max_len": 192,
+   "batch_size": 64,
+   "reps_sec": [
+    16.300704,
+    16.216383,
+    16.468623
+   ],
+   "total_sec_median": 16.30070363357663,
+   "ms_per_1k": 3062.3151669315484
+  }
+ },
+ "chunk": null,
+ "tfidf": {
+  "n": 5323,
+  "reps_sec": [
+   0.33924,
+   0.338262,
+   0.33882
+  ],
+  "total_sec_median": 0.33882007002830505,
+  "ms_per_1k": 63.652089052847096,
+  "C": 1.0,
+  "vectorizer": "baseline_tfidf.build_vectorizer",
+  "tokenizer": "char"
+ },
+ "ms_per_1k": {
+  "tfidf": 63.652089052847096,
+  "distilbert_192": 3062.3151669315484,
+  "bert_192": 3062.3151669315484
+ },
+ "dataset": "cold",
+ "model_name": "chinese-roberta-wwm-ext",
+ "model_path": "models/chinese-roberta-wwm-ext",
+ "bert": {
+  "192": {
+   "n": 5323,
+   "max_len": 192,
+   "batch_size": 64,
+   "reps_sec": [
+    16.300704,
+    16.216383,
+    16.468623
+   ],
+   "total_sec_median": 16.30070363357663,
+   "ms_per_1k": 3062.3151669315484
+  }
+ }
+}

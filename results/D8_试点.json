@@ -1,0 +1,169 @@
+{
+ "task": "D8_试点",
+ "run": {
+  "started_at": "2026-11-22T23:01:03-05:00",
+  "finished_at": "2026-11-22T23:02:20-05:00",
+  "finished_at_beijing": "2026-11-23T12:02:20+08:00",
+  "elapsed_sec": 76.914144,
+  "workers": 4,
+  "max_retries": 3,
+  "peak_at_start": false,
+  "note": "本轮只做 200 条试点；未跑全量。"
+ },
+ "model": {
+  "name": "deepseek-flash",
+  "version": "DeepSeek-V4.1-Flash-1017",
+  "base_url": "https://api.deepseek.com",
+  "endpoint": "https://api.deepseek.com/chat/completions",
+  "api_docs": "https://api-docs.deepseek.com/",
+  "api_format": "OpenAI 兼容 Chat Completions",
+  "thinking": "disabled",
+  "request": {
+   "temperature": 0,
+   "max_tokens": 1,
+   "logprobs": true,
+   "top_logprobs": 20,
+   "prompt": "P2",
+   "prompt_text": "判断下面这条评论是否带有攻击性。带有攻击性指辱骂、贬低或歧视某个人或某个群体，包括地域、性别、种族歧视，也包括用讽刺、刻板印象等含蓄方式表达的贬低。替某个群体辩护、批评或反对偏见的言论不算攻击性，即使其中提到了偏见的内容。只回答“是”或“否”。\n评论：{text}",
+   "system_prompt": "你是社交平台的内容审核员。"
+  }
+ },
+ "sampling": {
+  "source": "COLD 官方 dev（跨划分去重后）",
+  "method": "val.sample(n=1000, random_state=0).reset_index(drop=True).head(200)",
+  "seed": 0,
+  "val_n": 6415,
+  "pool_n": 1000,
+  "pilot_n": 200,
+  "dedup_removed": {
+   "train": 73,
+   "val": 16,
+   "test": 0
+  },
+  "label_counts": {
+   "0": 113,
+   "1": 87
+  }
+ },
+ "n": 200,
+ "status_counts": {
+  "ok": 192,
+  "partial": 8,
+  "no_prob": 0,
+  "blocked": 0,
+  "error": 0
+ },
+ "status_ratios": {
+  "ok": 0.96,
+  "partial": 0.04,
+  "no_prob": 0.0,
+  "blocked": 0.0,
+  "error": 0.0
+ },
+ "has_prob": {
+  "count": 200,
+  "ratio": 1.0,
+  "definition": "ok + partial"
+ },
+ "blocked_error": {
+  "count": 0,
+  "ratio": 0.0,
+  "definition": "blocked + error"
+ },
+ "error_types": {},
+ "avg_prompt_tokens": 121.3,
+ "avg_completion_tokens": 1.0,
+ "avg_latency_ms": 1526.36,
+ "avg_latency_ms_ok": 1526.36,
+ "p95_latency_ms": 1919.1499999999999,
+ "metrics_at_0.5": {
+  "threshold": 0.5,
+  "missing_as_attack": true,
+  "n": 200,
+  "n_missing": 0,
+  "accuracy": 0.7,
+  "macro_f1": 0.6940024479804161,
+  "per_class_f1": {
+   "安全": 0.7368421052631579,
+   "攻击性": 0.6511627906976745
+  },
+  "pos_precision": 0.6588235294117647,
+  "pos_recall": 0.6436781609195402,
+  "evaluable_only": {
+   "n": 200,
+   "accuracy": 0.7,
+   "macro_f1": 0.6940024479804161
+  }
+ },
+ "pricing": {
+  "source_urls": [
+   "https://api-docs.deepseek.com/zh-cn/quick_start/pricing",
+   "https://api-docs.deepseek.com/quick_start/pricing"
+  ],
+  "fetched_at": "2026-11-22",
+  "unit": "每百万 tokens",
+  "currency_primary": "CNY",
+  "raw_cn": [
+   "百万tokens输入（缓存命中）：空闲时段 0.02元，高峰时段 0.04元",
+   "百万tokens输入（缓存未命中）：空闲时段 1元，高峰时段 2元",
+   "百万tokens输出：空闲时段 4元，高峰时段 8元"
+  ],
+  "raw_en": [
+   "1M INPUT TOKENS (CACHE HIT) | OFF-PEAK $0.003 | PEAK $0.006",
+   "1M INPUT TOKENS (CACHE MISS) | OFF-PEAK $0.15 | PEAK $0.3",
+   "1M OUTPUT TOKENS | OFF-PEAK $0.6 | PEAK $1.2"
+  ],
+  "unit_prices_cny": {
+   "input_cache_hit_off_peak": 0.02,
+   "input_cache_hit_peak": 0.04,
+   "input_cache_miss_off_peak": 1.0,
+   "input_cache_miss_peak": 2.0,
+   "output_off_peak": 4.0,
+   "output_peak": 8.0
+  },
+  "unit_prices_usd": {
+   "input_cache_hit_off_peak": 0.003,
+   "input_cache_hit_peak": 0.006,
+   "input_cache_miss_off_peak": 0.15,
+   "input_cache_miss_peak": 0.3,
+   "output_off_peak": 0.6,
+   "output_peak": 1.2
+  },
+  "off_peak_note": "页面注明：空闲时段价格为高峰时段的一半；北京时间周一至周五（不含中国法定节假日）09:00–12:00、14:00–18:00 为高峰，即 UTC 01:00–04:00、06:00–10:00；其余时段包括周末全天为谷时。2026-11-22 是周日。",
+  "cache_assumption": "主口径按缓存未命中计（评论互不重复）；另给输入全命中的下界。",
+  "token_basis": {
+   "n_with_usage": 200,
+   "prompt": "有 usage 的条目取平均",
+   "completion": "有 usage 的条目取平均"
+  },
+  "cost_per_1k": {
+   "cost_per_1k_cny_off_peak_cache_miss": 0.1253,
+   "cost_per_1k_cny_off_peak_cache_hit": 0.006426,
+   "cost_per_1k_cny_peak_cache_miss": 0.2506,
+   "cost_per_1k_cny_peak_cache_hit": 0.012852,
+   "cost_per_1k_usd_off_peak_cache_miss": 0.018795,
+   "cost_per_1k_usd_off_peak_cache_hit": 0.000964,
+   "cost_per_1k_usd_peak_cache_miss": 0.03759,
+   "cost_per_1k_usd_peak_cache_hit": 0.001928
+  }
+ },
+ "release_conditions": {
+  "items": [
+   {
+    "name": "拦截与报错合计 ≤ 5%",
+    "count": 0,
+    "ratio": 0.0,
+    "threshold": 0.05,
+    "pass": true
+   },
+   {
+    "name": "有概率的比例 ≥ 95%",
+    "count": 200,
+    "ratio": 1.0,
+    "threshold": 0.95,
+    "pass": true
+   }
+  ],
+  "overall_pass": true
+ }
+}

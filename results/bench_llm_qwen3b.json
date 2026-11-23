@@ -1,0 +1,17 @@
+{
+ "task": "D3_bench",
+ "n": 1000,
+ "batch_size": 16,
+ "warmup_batches": 2,
+ "reps": 3,
+ "reps_sec": [
+  18.52464249357581,
+  18.518763937056065,
+  18.516366690397263
+ ],
+ "median_sec": 18.518763937056065,
+ "ms_per_1k": 18.518763937056065,
+ "prompt": "P2",
+ "dtype": "float16",
+ "device": "cuda"
+}

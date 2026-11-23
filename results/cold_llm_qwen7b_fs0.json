@@ -1,0 +1,228 @@
+{
+ "dataset": "cold",
+ "model": "llm_causal",
+ "model_name": "qwen7b",
+ "model_path": "Qwen2.5-7B-Instruct",
+ "seed": 0,
+ "run_name": "cold_llm_qwen7b_fs0",
+ "run_at": "2026-11-22T20:11:30+08:00",
+ "prompt": "P2",
+ "threshold": 0.01,
+ "config": {
+  "batch_size": 16,
+  "dtype": "float16",
+  "device": "cuda",
+  "prompt": "P2",
+  "threshold": 0.01,
+  "max_chars": 192,
+  "n_test": 5323,
+  "eval_sets": [
+   "mhc_zh",
+   "toxicn_test",
+   "cloak_pinyin_orig",
+   "cloak_pinyin_edit",
+   "cloak_homophone_orig",
+   "cloak_homophone_edit",
+   "cloak_chaizi_orig",
+   "cloak_chaizi_edit",
+   "cloak_symbol_orig",
+   "cloak_symbol_edit"
+  ],
+  "system_prompt": "你是社交平台的内容审核员。",
+  "max_length": 4096,
+  "shots": 8,
+  "shot_seed": 0
+ },
+ "n_test": 5323,
+ "test_accuracy": 0.742250610557956,
+ "test_macro_f1": 0.7293765068696805,
+ "test_per_class_f1": {
+  "安全": 0.7884022208513264,
+  "攻击性": 0.6703507928880346
+ },
+ "test_pos_precision": 0.6788321167883211,
+ "test_pos_recall": 0.662078785002373,
+ "test_fine_grained": {
+  "0": {
+   "n": 2548,
+   "n_pred_offensive": 463,
+   "rate_pred_offensive": 0.18171114599686028
+  },
+  "1": {
+   "n": 288,
+   "n_pred_offensive": 202,
+   "rate_pred_offensive": 0.7013888888888888
+  },
+  "2": {
+   "n": 1819,
+   "n_pred_offensive": 1193,
+   "rate_pred_offensive": 0.6558548653106102
+  },
+  "3": {
+   "n": 668,
+   "n_pred_offensive": 197,
+   "rate_pred_offensive": 0.2949101796407186
+  }
+ },
+ "test_accuracy_at_0.5": 0.7268457636671051,
+ "test_macro_f1_at_0.5": 0.6853527789431917,
+ "test_pos_precision_at_0.5": 0.7544816835541699,
+ "test_pos_recall_at_0.5": 0.45942097769340295,
+ "test_fine_grained_at_0.5": {
+  "0": {
+   "n": 2548,
+   "n_pred_offensive": 223,
+   "rate_pred_offensive": 0.08751962323390895
+  },
+  "1": {
+   "n": 288,
+   "n_pred_offensive": 145,
+   "rate_pred_offensive": 0.5034722222222222
+  },
+  "2": {
+   "n": 1819,
+   "n_pred_offensive": 823,
+   "rate_pred_offensive": 0.4524463991203958
+  },
+  "3": {
+   "n": 668,
+   "n_pred_offensive": 92,
+   "rate_pred_offensive": 0.1377245508982036
+  }
+ },
+ "extra_eval": {
+  "mhc_zh": {
+   "accuracy": 0.8226761397276495,
+   "macro_f1": 0.7643106569352589,
+   "n": 3378,
+   "pos_precision": 0.7981388690050107,
+   "pos_recall": 0.9845474613686535
+  },
+  "toxicn_test": {
+   "accuracy": 0.7556016597510373,
+   "macro_f1": 0.7555086721400729,
+   "n": 2410,
+   "pos_precision": 0.8137614678899082,
+   "pos_recall": 0.6967792615868028
+  },
+  "cloak_pinyin_orig": {
+   "accuracy": 0.7465648854961832,
+   "macro_f1": 0.42744755244755245,
+   "n": 655,
+   "pos_precision": 1.0,
+   "pos_recall": 0.7465648854961832
+  },
+  "cloak_pinyin_edit": {
+   "accuracy": 0.749618320610687,
+   "macro_f1": 0.42844677137870857,
+   "n": 655,
+   "pos_precision": 1.0,
+   "pos_recall": 0.749618320610687
+  },
+  "cloak_homophone_orig": {
+   "accuracy": 0.7465648854961832,
+   "macro_f1": 0.42744755244755245,
+   "n": 655,
+   "pos_precision": 1.0,
+   "pos_recall": 0.7465648854961832
+  },
+  "cloak_homophone_edit": {
+   "accuracy": 0.6396946564885496,
+   "macro_f1": 0.39013035381750466,
+   "n": 655,
+   "pos_precision": 1.0,
+   "pos_recall": 0.6396946564885496
+  },
+  "cloak_chaizi_orig": {
+   "accuracy": 0.7376237623762376,
+   "macro_f1": 0.42450142450142453,
+   "n": 606,
+   "pos_precision": 1.0,
+   "pos_recall": 0.7376237623762376
+  },
+  "cloak_chaizi_edit": {
+   "accuracy": 0.7095709570957096,
+   "macro_f1": 0.41505791505791506,
+   "n": 606,
+   "pos_precision": 1.0,
+   "pos_recall": 0.7095709570957096
+  },
+  "cloak_symbol_orig": {
+   "accuracy": 0.7465648854961832,
+   "macro_f1": 0.42744755244755245,
+   "n": 655,
+   "pos_precision": 1.0,
+   "pos_recall": 0.7465648854961832
+  },
+  "cloak_symbol_edit": {
+   "accuracy": 0.8595419847328244,
+   "macro_f1": 0.46223316912972084,
+   "n": 655,
+   "pos_precision": 1.0,
+   "pos_recall": 0.8595419847328244
+  }
+ },
+ "ms_per_1k": 251317.35844165087,
+ "shots": 8,
+ "shot_seed": 0,
+ "shot_examples": [
+  {
+   "train_index": 25553,
+   "label": 1,
+   "answer": "是"
+  },
+  {
+   "train_index": 2742,
+   "label": 0,
+   "answer": "否"
+  },
+  {
+   "train_index": 7008,
+   "label": 1,
+   "answer": "是"
+  },
+  {
+   "train_index": 17495,
+   "label": 1,
+   "answer": "是"
+  },
+  {
+   "train_index": 20217,
+   "label": 0,
+   "answer": "否"
+  },
+  {
+   "train_index": 7059,
+   "label": 0,
+   "answer": "否"
+  },
+  {
+   "train_index": 23140,
+   "label": 1,
+   "answer": "是"
+  },
+  {
+   "train_index": 8668,
+   "label": 0,
+   "answer": "否"
+  }
+ ],
+ "max_input_tokens": 1241,
+ "max_length": 4096,
+ "bench": {
+  "n": 1000,
+  "batch_size": 16,
+  "warmup_batches": 2,
+  "reps": 3,
+  "reps_sec": [
+   251.31735844165087,
+   251.3535059839487,
+   251.17963127791882
+  ],
+  "median_sec": 251.31735844165087,
+  "ms_per_1k": 251317.35844165087,
+  "prompt": "P2",
+  "dtype": "float16",
+  "device": "cuda"
+ }
+}

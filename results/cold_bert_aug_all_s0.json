@@ -1,0 +1,239 @@
+{
+ "dataset": "cold",
+ "model": "bert",
+ "tag": "bert",
+ "seed": 0,
+ "run_name": "cold_bert_aug_all_s0",
+ "run_at": "2026-11-22T15:46:07+08:00",
+ "config": {
+  "dataset": "cold",
+  "seed": 0,
+  "train_n": null,
+  "train_frac": 1.0,
+  "max_len": 192,
+  "epochs": 3,
+  "lr": 2e-05,
+  "batch_size": 32,
+  "weight_decay": 0.01,
+  "warmup_frac": 0.1,
+  "grad_clip": 1.0,
+  "device": "cuda",
+  "tag": "bert",
+  "save_preds": true,
+  "save_val_preds": true,
+  "out_dir": null,
+  "run_suffix": "aug_all",
+  "trunc": "head",
+  "head_tokens": 128,
+  "chunk_eval": false,
+  "test_limit": null,
+  "save_model": false,
+  "decontaminate": true,
+  "extra_eval": "mhc_zh,toxicn_test,cloak_pinyin_orig,cloak_pinyin_edit,cloak_homophone_orig,cloak_homophone_edit,cloak_chaizi_orig,cloak_chaizi_edit,cloak_symbol_orig,cloak_symbol_edit,cloak_delete_orig,cloak_delete_edit,swap_orig,swap_edit",
+  "model_path": "models/rbt3",
+  "aug_csv": "data_selfmade/aug_all_s0.csv",
+  "num_classes": 2,
+  "vocab_size": 21128,
+  "optimizer": "AdamW",
+  "amp": true,
+  "n_train": 29975,
+  "aug_n_appended": 4322,
+  "n_val": 6415,
+  "n_test": 5323
+ },
+ "vocab_size": 21128,
+ "num_params": 38478338,
+ "truncation_rate": 0.0,
+ "truncation_rate_by_split": {
+  "train": 0.0,
+  "val": 0.0,
+  "test": 0.0
+ },
+ "epochs": 3,
+ "stopped_epoch": 3,
+ "early_stopped": false,
+ "n_train_used": 29975,
+ "best_epoch": 3,
+ "best_val_accuracy": 0.9147310989867498,
+ "history": [
+  {
+   "epoch": 1,
+   "train_loss": 0.339323754905163,
+   "val_loss": 0.24703284654641466,
+   "val_accuracy": 0.906157443491816,
+   "train_time_sec": 24.200979962944984,
+   "gpu_peak_memory_mb": 1192.47119140625
+  },
+  {
+   "epoch": 2,
+   "train_loss": 0.19123377019982224,
+   "val_loss": 0.242194697229498,
+   "val_accuracy": 0.9130163678877631,
+   "train_time_sec": 23.611574560403824,
+   "gpu_peak_memory_mb": 1192.47119140625
+  },
+  {
+   "epoch": 3,
+   "train_loss": 0.1502657295506233,
+   "val_loss": 0.24180740201185202,
+   "val_accuracy": 0.9147310989867498,
+   "train_time_sec": 23.659776501357555,
+   "gpu_peak_memory_mb": 1192.47119140625
+  }
+ ],
+ "test_accuracy": 0.8119481495397333,
+ "test_macro_f1": 0.8085223243218865,
+ "test_per_class_f1": {
+  "安全": 0.8341342170671086,
+  "攻击性": 0.7829104315766645
+ },
+ "decontaminated": true,
+ "decontaminate_removed": {
+  "train": 73,
+  "val": 16,
+  "test": 0
+ },
+ "aug_csv": "data_selfmade/aug_all_s0.csv",
+ "aug_n_appended": 4322,
+ "extra_eval": {
+  "mhc_zh": {
+   "accuracy": 0.5746003552397868,
+   "macro_f1": 0.5618156961280308,
+   "n": 3378,
+   "pos_precision": 0.7449704142011835,
+   "pos_recall": 0.555849889624724
+  },
+  "toxicn_test": {
+   "accuracy": 0.6734439834024897,
+   "macro_f1": 0.6708241674802039,
+   "n": 2410,
+   "pos_precision": 0.7635574837310195,
+   "pos_recall": 0.5530243519245875
+  },
+  "cloak_pinyin_orig": {
+   "accuracy": 0.9480916030534351,
+   "macro_f1": 0.48667711598746083,
+   "n": 655,
+   "pos_precision": 1.0,
+   "pos_recall": 0.9480916030534351
+  },
+  "cloak_pinyin_edit": {
+   "accuracy": 0.9480916030534351,
+   "macro_f1": 0.48667711598746083,
+   "n": 655,
+   "pos_precision": 1.0,
+   "pos_recall": 0.9480916030534351
+  },
+  "cloak_homophone_orig": {
+   "accuracy": 0.9480916030534351,
+   "macro_f1": 0.48667711598746083,
+   "n": 655,
+   "pos_precision": 1.0,
+   "pos_recall": 0.9480916030534351
+  },
+  "cloak_homophone_edit": {
+   "accuracy": 0.9007633587786259,
+   "macro_f1": 0.4738955823293173,
+   "n": 655,
+   "pos_precision": 1.0,
+   "pos_recall": 0.9007633587786259
+  },
+  "cloak_chaizi_orig": {
+   "accuracy": 0.9471947194719472,
+   "macro_f1": 0.4864406779661017,
+   "n": 606,
+   "pos_precision": 1.0,
+   "pos_recall": 0.9471947194719472
+  },
+  "cloak_chaizi_edit": {
+   "accuracy": 0.9323432343234324,
+   "macro_f1": 0.4824935952177626,
+   "n": 606,
+   "pos_precision": 1.0,
+   "pos_recall": 0.9323432343234324
+  },
+  "cloak_symbol_orig": {
+   "accuracy": 0.9480916030534351,
+   "macro_f1": 0.48667711598746083,
+   "n": 655,
+   "pos_precision": 1.0,
+   "pos_recall": 0.9480916030534351
+  },
+  "cloak_symbol_edit": {
+   "accuracy": 0.9603053435114504,
+   "macro_f1": 0.4898753894080997,
+   "n": 655,
+   "pos_precision": 1.0,
+   "pos_recall": 0.9603053435114504
+  },
+  "cloak_delete_orig": {
+   "accuracy": 0.9480916030534351,
+   "macro_f1": 0.48667711598746083,
+   "n": 655,
+   "pos_precision": 1.0,
+   "pos_recall": 0.9480916030534351
+  },
+  "cloak_delete_edit": {
+   "accuracy": 0.5938931297709924,
+   "macro_f1": 0.3726053639846743,
+   "n": 655,
+   "pos_precision": 1.0,
+   "pos_recall": 0.5938931297709924
+  },
+  "swap_orig": {
+   "accuracy": 0.8178755894902313,
+   "macro_f1": 0.8157164773891361,
+   "n": 4453,
+   "pos_precision": 0.7311429893567792,
+   "pos_recall": 0.8729281767955801
+  },
+  "swap_edit": {
+   "accuracy": 0.8017067145744442,
+   "macro_f1": 0.7986121030981324,
+   "n": 4453,
+   "pos_precision": 0.7216642754662841,
+   "pos_recall": 0.8337016574585635
+  }
+ },
+ "trunc": "head",
+ "chunk_test_accuracy": null,
+ "chunk_test_macro_f1": null,
+ "chunk_test_per_class_f1": null,
+ "chunk_test_n_chunks_mean": null,
+ "chunk_test_n_chunks_max": null,
+ "train_time_per_epoch_sec": 23.824110341568787,
+ "total_train_time_sec": 71.47233102470636,
+ "gpu_peak_memory_mb": 1192.47119140625,
+ "test_pos_precision": 0.7208466453674122,
+ "test_pos_recall": 0.8566682486948267,
+ "test_per_class_precision": {
+  "安全": 0.8928698119900674,
+  "攻击性": 0.7208466453674122
+ },
+ "test_per_class_recall": {
+  "安全": 0.7826492537313433,
+  "攻击性": 0.8566682486948267
+ },
+ "test_fine_grained": {
+  "0": {
+   "n": 2548,
+   "n_pred_offensive": 286,
+   "rate_pred_offensive": 0.11224489795918367
+  },
+  "1": {
+   "n": 288,
+   "n_pred_offensive": 236,
+   "rate_pred_offensive": 0.8194444444444444
+  },
+  "2": {
+   "n": 1819,
+   "n_pred_offensive": 1569,
+   "rate_pred_offensive": 0.862561847168774
+  },
+  "3": {
+   "n": 668,
+   "n_pred_offensive": 413,
+   "rate_pred_offensive": 0.6182634730538922
+  }
+ }
+}

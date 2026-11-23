@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+data/
+data_selfmade/
+checkpoints/
+models/
+logs/
+results/preds/
+*.log
+.env

@@ -1,0 +1,66 @@
+{
+ "generated_at": "2026-11-22T12:07:24+08:00",
+ "device": "cuda",
+ "gpu": "Tesla V100S-PCIE-32GB",
+ "cpu": "Intel(R) Xeon(R) Gold 5318Y CPU @ 2.10GHz",
+ "cpu_count": 96,
+ "torch_num_threads": 48,
+ "torch_version": "2.8.0+cu126",
+ "sklearn_version": "1.7.2",
+ "batch_size": 64,
+ "warmup_batches": 1,
+ "reps": 3,
+ "test_limit": null,
+ "test_n": 5323,
+ "fp32": true,
+ "distilbert": {
+  "192": {
+   "n": 5323,
+   "max_len": 192,
+   "batch_size": 64,
+   "reps_sec": [
+    4.322642,
+    4.159092,
+    4.308
+   ],
+   "total_sec_median": 4.307999640703201,
+   "ms_per_1k": 809.3179862301713
+  }
+ },
+ "chunk": null,
+ "tfidf": {
+  "n": 5323,
+  "reps_sec": [
+   0.340827,
+   0.340544,
+   0.339935
+  ],
+  "total_sec_median": 0.34054430574178696,
+  "ms_per_1k": 63.97601084760229,
+  "C": 1.0,
+  "vectorizer": "baseline_tfidf.build_vectorizer",
+  "tokenizer": "char"
+ },
+ "ms_per_1k": {
+  "tfidf": 63.97601084760229,
+  "distilbert_192": 809.3179862301713,
+  "bert_192": 809.3179862301713
+ },
+ "dataset": "cold",
+ "model_name": "rbt3",
+ "model_path": "models/rbt3",
+ "bert": {
+  "192": {
+   "n": 5323,
+   "max_len": 192,
+   "batch_size": 64,
+   "reps_sec": [
+    4.322642,
+    4.159092,
+    4.308
+   ],
+   "total_sec_median": 4.307999640703201,
+   "ms_per_1k": 809.3179862301713
+  }
+ }
+}

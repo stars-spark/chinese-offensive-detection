@@ -1,0 +1,18 @@
+{
+ "pred": "results/preds/D2_归因_s0.parquet",
+ "veto_file": "D2_否决.txt",
+ "picked_indices": [
+  2119,
+  5176,
+  945,
+  2354,
+  1570,
+  3250
+ ],
+ "vetoed_indices": [
+  4511,
+  3651,
+  4519
+ ],
+ "n_picked": 6
+}
