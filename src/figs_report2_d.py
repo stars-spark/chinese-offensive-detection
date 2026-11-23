@@ -19,7 +19,7 @@ import matplotlib.pyplot as plt  # noqa: E402
 
 FIG = ROOT / "figures"
 KIND_NAMES = {"pinyin": "拼音", "homophone": "同音字", "chaizi": "拆字", "symbol": "插符号"}
-C_BASE, C_ALL, C_HELD = PALETTE["gray"], PALETTE["teal"], PALETTE["cyan"]
+C_BASE, C_ALL, C_HELD = PALETTE["navy"], PALETTE["teal"], PALETTE["cyan"]
 
 
 def fig_d1():
