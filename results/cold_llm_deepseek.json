@@ -1,0 +1,491 @@
+{
+ "dataset": "cold",
+ "model": "llm_api",
+ "model_name": "deepseek",
+ "run_name": "cold_llm_deepseek",
+ "seed": 0,
+ "run_at": "2026-11-23T06:58:17-05:00",
+ "prompt": "P2",
+ "threshold": 0.01,
+ "api": {
+  "model": "deepseek-flash",
+  "endpoint": "https://api.deepseek.com/chat/completions",
+  "temperature": 0,
+  "max_tokens": 1,
+  "top_logprobs": 20,
+  "thinking": "disabled",
+  "workers": 4
+ },
+ "config": {
+  "prompt": "P2",
+  "threshold": 0.01,
+  "max_chars": 192,
+  "n_test": 5323,
+  "eval_sets": [
+   "mhc_zh",
+   "toxicn_test",
+   "cloak_pinyin_orig",
+   "cloak_pinyin_edit",
+   "cloak_homophone_orig",
+   "cloak_homophone_edit",
+   "cloak_chaizi_orig",
+   "cloak_chaizi_edit",
+   "cloak_symbol_orig",
+   "cloak_symbol_edit",
+   "cloak_delete_orig",
+   "cloak_delete_edit",
+   "swap_orig",
+   "swap_edit"
+  ],
+  "system_prompt": "你是社交平台的内容审核员。",
+  "missing_as_attack": true
+ },
+ "n_test": 5323,
+ "test_accuracy": 0.7627277850835995,
+ "test_macro_f1": 0.7511109299559093,
+ "test_per_class_f1": {
+  "安全": 0.804881816777383,
+  "攻击性": 0.6973400431344356
+ },
+ "test_pos_precision": 0.7042594385285575,
+ "test_pos_recall": 0.6905552918841955,
+ "test_fine_grained": {
+  "0": {
+   "n": 2548,
+   "n_pred_offensive": 465,
+   "rate_pred_offensive": 0.1824960753532182
+  },
+  "1": {
+   "n": 288,
+   "n_pred_offensive": 208,
+   "rate_pred_offensive": 0.7222222222222222
+  },
+  "2": {
+   "n": 1819,
+   "n_pred_offensive": 1247,
+   "rate_pred_offensive": 0.685541506322155
+  },
+  "3": {
+   "n": 668,
+   "n_pred_offensive": 146,
+   "rate_pred_offensive": 0.218562874251497
+  }
+ },
+ "test_accuracy_at_0.5": 0.7627277850835995,
+ "test_macro_f1_at_0.5": 0.7511109299559093,
+ "test_pos_precision_at_0.5": 0.7042594385285575,
+ "test_pos_recall_at_0.5": 0.6905552918841955,
+ "test_fine_grained_at_0.5": {
+  "0": {
+   "n": 2548,
+   "n_pred_offensive": 465,
+   "rate_pred_offensive": 0.1824960753532182
+  },
+  "1": {
+   "n": 288,
+   "n_pred_offensive": 208,
+   "rate_pred_offensive": 0.7222222222222222
+  },
+  "2": {
+   "n": 1819,
+   "n_pred_offensive": 1247,
+   "rate_pred_offensive": 0.685541506322155
+  },
+  "3": {
+   "n": 668,
+   "n_pred_offensive": 146,
+   "rate_pred_offensive": 0.218562874251497
+  }
+ },
+ "test_status_counts": {
+  "ok": 4949,
+  "partial": 374,
+  "no_prob": 0,
+  "blocked": 0,
+  "error": 0
+ },
+ "test_excluded": {
+  "n": 5323,
+  "accuracy": 0.7627277850835995,
+  "macro_f1": 0.7511109299559093,
+  "pos_precision": 0.7042594385285575,
+  "pos_recall": 0.6905552918841955
+ },
+ "extra_eval": {
+  "mhc_zh": {
+   "n": 3378,
+   "accuracy": 0.9289520426287744,
+   "macro_f1": 0.9150140573994754,
+   "pos_precision": 0.9081015719467956,
+   "pos_recall": 0.9947019867549669,
+   "status_counts": {
+    "ok": 2488,
+    "partial": 890,
+    "no_prob": 0,
+    "blocked": 0,
+    "error": 0
+   },
+   "excluded": {
+    "n": 3378,
+    "accuracy": 0.9289520426287744,
+    "macro_f1": 0.9150140573994754,
+    "pos_precision": 0.9081015719467956,
+    "pos_recall": 0.9947019867549669
+   }
+  },
+  "toxicn_test": {
+   "n": 2410,
+   "accuracy": 0.7825726141078838,
+   "macro_f1": 0.7822553001602169,
+   "pos_precision": 0.8047192839707079,
+   "pos_recall": 0.776904948939513,
+   "status_counts": {
+    "ok": 2249,
+    "partial": 161,
+    "no_prob": 0,
+    "blocked": 0,
+    "error": 0
+   },
+   "excluded": {
+    "n": 2410,
+    "accuracy": 0.7825726141078838,
+    "macro_f1": 0.7822553001602169,
+    "pos_precision": 0.8047192839707079,
+    "pos_recall": 0.776904948939513
+   }
+  },
+  "cloak_pinyin_orig": {
+   "n": 655,
+   "accuracy": 0.7877862595419848,
+   "macro_f1": 0.4406490179333903,
+   "pos_precision": 1.0,
+   "pos_recall": 0.7877862595419848,
+   "status_counts": {
+    "ok": 646,
+    "partial": 9,
+    "no_prob": 0,
+    "blocked": 0,
+    "error": 0
+   },
+   "excluded": {
+    "n": 655,
+    "accuracy": 0.7877862595419848,
+    "macro_f1": 0.4406490179333903,
+    "pos_precision": 1.0,
+    "pos_recall": 0.7877862595419848
+   }
+  },
+  "cloak_pinyin_edit": {
+   "n": 655,
+   "accuracy": 0.8244274809160306,
+   "macro_f1": 0.45188284518828453,
+   "pos_precision": 1.0,
+   "pos_recall": 0.8244274809160306,
+   "status_counts": {
+    "ok": 650,
+    "partial": 5,
+    "no_prob": 0,
+    "blocked": 0,
+    "error": 0
+   },
+   "excluded": {
+    "n": 655,
+    "accuracy": 0.8244274809160306,
+    "macro_f1": 0.45188284518828453,
+    "pos_precision": 1.0,
+    "pos_recall": 0.8244274809160306
+   }
+  },
+  "cloak_homophone_orig": {
+   "n": 655,
+   "accuracy": 0.7862595419847328,
+   "macro_f1": 0.44017094017094016,
+   "pos_precision": 1.0,
+   "pos_recall": 0.7862595419847328,
+   "status_counts": {
+    "ok": 643,
+    "partial": 12,
+    "no_prob": 0,
+    "blocked": 0,
+    "error": 0
+   },
+   "excluded": {
+    "n": 655,
+    "accuracy": 0.7862595419847328,
+    "macro_f1": 0.44017094017094016,
+    "pos_precision": 1.0,
+    "pos_recall": 0.7862595419847328
+   }
+  },
+  "cloak_homophone_edit": {
+   "n": 655,
+   "accuracy": 0.7190839694656489,
+   "macro_f1": 0.4182948490230906,
+   "pos_precision": 1.0,
+   "pos_recall": 0.7190839694656489,
+   "status_counts": {
+    "ok": 652,
+    "partial": 3,
+    "no_prob": 0,
+    "blocked": 0,
+    "error": 0
+   },
+   "excluded": {
+    "n": 655,
+    "accuracy": 0.7190839694656489,
+    "macro_f1": 0.4182948490230906,
+    "pos_precision": 1.0,
+    "pos_recall": 0.7190839694656489
+   }
+  },
+  "cloak_chaizi_orig": {
+   "n": 606,
+   "accuracy": 0.7722772277227723,
+   "macro_f1": 0.43575418994413406,
+   "pos_precision": 1.0,
+   "pos_recall": 0.7722772277227723,
+   "status_counts": {
+    "ok": 597,
+    "partial": 9,
+    "no_prob": 0,
+    "blocked": 0,
+    "error": 0
+   },
+   "excluded": {
+    "n": 606,
+    "accuracy": 0.7722772277227723,
+    "macro_f1": 0.43575418994413406,
+    "pos_precision": 1.0,
+    "pos_recall": 0.7722772277227723
+   }
+  },
+  "cloak_chaizi_edit": {
+   "n": 606,
+   "accuracy": 0.7623762376237624,
+   "macro_f1": 0.43258426966292135,
+   "pos_precision": 1.0,
+   "pos_recall": 0.7623762376237624,
+   "status_counts": {
+    "ok": 603,
+    "partial": 3,
+    "no_prob": 0,
+    "blocked": 0,
+    "error": 0
+   },
+   "excluded": {
+    "n": 606,
+    "accuracy": 0.7623762376237624,
+    "macro_f1": 0.43258426966292135,
+    "pos_precision": 1.0,
+    "pos_recall": 0.7623762376237624
+   }
+  },
+  "cloak_symbol_orig": {
+   "n": 655,
+   "accuracy": 0.7862595419847328,
+   "macro_f1": 0.44017094017094016,
+   "pos_precision": 1.0,
+   "pos_recall": 0.7862595419847328,
+   "status_counts": {
+    "ok": 645,
+    "partial": 10,
+    "no_prob": 0,
+    "blocked": 0,
+    "error": 0
+   },
+   "excluded": {
+    "n": 655,
+    "accuracy": 0.7862595419847328,
+    "macro_f1": 0.44017094017094016,
+    "pos_precision": 1.0,
+    "pos_recall": 0.7862595419847328
+   }
+  },
+  "cloak_symbol_edit": {
+   "n": 655,
+   "accuracy": 0.8106870229007633,
+   "macro_f1": 0.4477234401349072,
+   "pos_precision": 1.0,
+   "pos_recall": 0.8106870229007633,
+   "status_counts": {
+    "ok": 647,
+    "partial": 8,
+    "no_prob": 0,
+    "blocked": 0,
+    "error": 0
+   },
+   "excluded": {
+    "n": 655,
+    "accuracy": 0.8106870229007633,
+    "macro_f1": 0.4477234401349072,
+    "pos_precision": 1.0,
+    "pos_recall": 0.8106870229007633
+   }
+  },
+  "cloak_delete_orig": {
+   "n": 655,
+   "accuracy": 0.7801526717557252,
+   "macro_f1": 0.43825042881646653,
+   "pos_precision": 1.0,
+   "pos_recall": 0.7801526717557252,
+   "status_counts": {
+    "ok": 642,
+    "partial": 13,
+    "no_prob": 0,
+    "blocked": 0,
+    "error": 0
+   },
+   "excluded": {
+    "n": 655,
+    "accuracy": 0.7801526717557252,
+    "macro_f1": 0.43825042881646653,
+    "pos_precision": 1.0,
+    "pos_recall": 0.7801526717557252
+   }
+  },
+  "cloak_delete_edit": {
+   "n": 655,
+   "accuracy": 0.6198473282442748,
+   "macro_f1": 0.3826578699340245,
+   "pos_precision": 1.0,
+   "pos_recall": 0.6198473282442748,
+   "status_counts": {
+    "ok": 648,
+    "partial": 7,
+    "no_prob": 0,
+    "blocked": 0,
+    "error": 0
+   },
+   "excluded": {
+    "n": 655,
+    "accuracy": 0.6198473282442748,
+    "macro_f1": 0.3826578699340245,
+    "pos_precision": 1.0,
+    "pos_recall": 0.6198473282442748
+   }
+  },
+  "swap_orig": {
+   "n": 4453,
+   "accuracy": 0.7240062878958006,
+   "macro_f1": 0.7190063570871229,
+   "pos_precision": 0.6417764763299171,
+   "pos_recall": 0.7265193370165746,
+   "status_counts": {
+    "ok": 4211,
+    "partial": 242,
+    "no_prob": 0,
+    "blocked": 0,
+    "error": 0
+   },
+   "excluded": {
+    "n": 4453,
+    "accuracy": 0.7240062878958006,
+    "macro_f1": 0.7190063570871229,
+    "pos_precision": 0.6417764763299171,
+    "pos_recall": 0.7265193370165746
+   }
+  },
+  "swap_edit": {
+   "n": 4453,
+   "accuracy": 0.7233325847743095,
+   "macro_f1": 0.7184738284795635,
+   "pos_precision": 0.640427599611273,
+   "pos_recall": 0.7281767955801105,
+   "status_counts": {
+    "ok": 4268,
+    "partial": 185,
+    "no_prob": 0,
+    "blocked": 0,
+    "error": 0
+   },
+   "excluded": {
+    "n": 4453,
+    "accuracy": 0.7233325847743095,
+    "macro_f1": 0.7184738284795635,
+    "pos_precision": 0.640427599611273,
+    "pos_recall": 0.7281767955801105
+   }
+  }
+ },
+ "ms_per_1k": null,
+ "api_latency": {
+  "mean_ms": 1664.3747886530152,
+  "median_ms": 1577.0,
+  "note": "单条请求往返延迟，含网络；与本地 GPU 的每千条耗时不可比，照报"
+ },
+ "timing": {
+  "test": {
+   "n_new": 0,
+   "wall_sec": 0.010160466976230964
+  },
+  "mhc_zh": {
+   "n_new": 0,
+   "wall_sec": 0.0051653480040840805
+  },
+  "toxicn_test": {
+   "n_new": 0,
+   "wall_sec": 0.004835756000829861
+  },
+  "cloak_pinyin_orig": {
+   "n_new": 0,
+   "wall_sec": 0.0028963689983356744
+  },
+  "cloak_pinyin_edit": {
+   "n_new": 0,
+   "wall_sec": 0.0029521160176955163
+  },
+  "cloak_homophone_orig": {
+   "n_new": 0,
+   "wall_sec": 0.0030878160032443702
+  },
+  "cloak_homophone_edit": {
+   "n_new": 55,
+   "wall_sec": 2668.914043941011
+  },
+  "cloak_chaizi_orig": {
+   "n_new": 606,
+   "wall_sec": 424.13969904600526
+  },
+  "cloak_chaizi_edit": {
+   "n_new": 606,
+   "wall_sec": 315.77738882700214
+  },
+  "cloak_symbol_orig": {
+   "n_new": 655,
+   "wall_sec": 275.9595131399983
+  },
+  "cloak_symbol_edit": {
+   "n_new": 655,
+   "wall_sec": 359.0627594749967
+  },
+  "cloak_delete_orig": {
+   "n_new": 655,
+   "wall_sec": 417.0831468999968
+  },
+  "cloak_delete_edit": {
+   "n_new": 655,
+   "wall_sec": 436.47454927599756
+  },
+  "swap_orig": {
+   "n_new": 4453,
+   "wall_sec": 2262.4309143380087
+  },
+  "swap_edit": {
+   "n_new": 4453,
+   "wall_sec": 2570.7549494029954
+  }
+ },
+ "cost": {
+  "n_calls": 26469,
+  "avg_prompt_tokens": 119.17099248177112,
+  "avg_completion_tokens": 1.0,
+  "cost_per_1k_cny_off_peak_cache_miss": 0.12317099248177112,
+  "cost_per_1k_cny_peak_cache_miss": 0.24634198496354223,
+  "pricing_source": "https://api-docs.deepseek.com/zh-cn/quick_start/pricing",
+  "raw_cn": [
+   "百万tokens输入（缓存命中）：空闲时段 0.02元，高峰时段 0.04元",
+   "百万tokens输入（缓存未命中）：空闲时段 1元，高峰时段 2元",
+   "百万tokens输出：空闲时段 4元，高峰时段 8元"
+  ]
+ }
+}
